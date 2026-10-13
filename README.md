@@ -5,6 +5,22 @@
 ✨ Your new, shiny [Nx workspace](https://nx.dev) is ready ✨.
 
 [Learn more about this workspace setup and its capabilities](https://nx.dev/docs/technologies/typescript/introduction?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+
+## Local infrastructure
+
+Shared infra (Postgres, Redis, RabbitMQ) runs via Docker Compose, outside of Nx:
+
+```sh
+cp .env.example .env   # first time only
+docker compose up -d
+```
+
+| Service  | Port(s)      | Notes                                        |
+| -------- | ------------ | -------------------------------------------- |
+| Postgres | 55432        | one instance, one database per service       |
+| Redis    | 6379         | shared, namespaced keys per service          |
+| RabbitMQ | 5672 / 15672 | AMQP / management UI (credentials in `.env`) |
+
 ## Finish your Nx platform setup
 
 🚀 [Finish setting up your workspace](https://cloud.nx.app/connect/JLpu3qY8y2) to get faster builds with remote caching, distributed task execution, and self-healing CI. [Learn more about Nx Cloud](https://nx.dev/ci/intro/why-nx-cloud).
