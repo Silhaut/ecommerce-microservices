@@ -1,0 +1,33 @@
+name: Chore
+description: Tooling, docs, or maintenance work with no behavior change
+title: '<short imperative summary>'
+labels:
+  - type:chore
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Add the matching area:* label after creating the issue.
+      options:
+        - auth
+        - user
+        - catalog
+        - inventory
+        - cart
+        - order
+        - payment
+        - notification
+        - gateway
+        - bff
+        - shared
+        - infra
+        - observability
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What needs to be done, and why
+    validations:
+      required: true
