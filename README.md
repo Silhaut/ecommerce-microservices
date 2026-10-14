@@ -11,9 +11,15 @@
 Shared infra (Postgres, Redis, RabbitMQ) runs via Docker Compose, outside of Nx:
 
 ```sh
-cp .env.example .env   # first time only
-docker compose up -d
+make install   # first time only — pnpm install + git hooks
+make up        # start postgres/redis/rabbitmq
+make down      # stop, keep data
+make logs      # tail infra logs
+make clean     # stop and wipe all data
+make ci        # run what CI runs, locally
 ```
+
+Run `make` with no target for the full list.
 
 | Service  | Port(s)      | Notes                                        |
 | -------- | ------------ | -------------------------------------------- |
