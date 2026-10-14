@@ -1,0 +1,39 @@
+name: Bug
+description: Something is broken
+title: '<short summary of the broken behavior>'
+labels:
+  - type:bug
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Add the matching area:* label after creating the issue.
+      options:
+        - auth
+        - user
+        - catalog
+        - inventory
+        - cart
+        - order
+        - payment
+        - notification
+        - gateway
+        - bff
+        - shared
+        - infra
+        - observability
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected vs. actual behavior
+    validations:
+      required: true
